@@ -22,19 +22,20 @@ async function fetchData(urlAPI) {
         let view = `
             ${videos.items.map(video => `
 
-            <div class="group relative cursor-pointer">
+            <div class="group relative cursor-pointer border-[0.3vh] rounded-xl p-[3vh]">
+                <a href='https://www.youtube.com/watch?v=${video.id.videoId}' target='_blank'>
+                    <div
+                    class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+                        <img src='${video.snippet.thumbnails.high.url}' alt='${video.snippet.description}' class="w-full">
+                    </div>
 
-                <div
-                class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-                    <img src='${video.snippet.thumbnails.high.url}' alt='${video.snippet.description}' class="w-full">
-                </div>
-
-                <div class="mt-4 flex justify-between">
-                    <h3 class="text-slate-600 group-hover:text-slate-300 mt-3 text-base sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 select-none">
-                        <span aria-hidden="true" class="absolute inset-0"></span>
-                        ${video.snippet.title}
-                    </h3>
-                </div>
+                    <div class="mt-4 flex justify-between">
+                        <h3 class="text-slate-600 group-hover:text-slate-300 mt-3 text-base sm:mt-[0.3vh] sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0 select-none">
+                            <span aria-hidden="true" class="absolute inset-0"></span>
+                            ${video.snippet.title}
+                        </h3>
+                    </div>
+                </a>
 
             </div>
 
